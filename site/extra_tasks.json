@@ -1,0 +1,131 @@
+{
+ "dart": {
+  "basic": [
+   {
+    "q": "اطبع اسمك وسنك في جملة واحدة باستخدام string interpolation.",
+    "hint": "استخدم $name و $age جوه النص.",
+    "a": "void main() {\n  String name = 'Ahmed';\n  int age = 20;\n  print('My name is $name and I am $age years old');\n}"
+   },
+   {
+    "q": "احسب مساحة مستطيل طوله 8 وعرضه 5 واطبعها.",
+    "hint": "المساحة = الطول × العرض.",
+    "a": [
+     "void main() {\n  int w = 8;\n  int h = 5;\n  print('Area = ${w * h}');\n}",
+     "void main() {\n  const w = 8, h = 5;\n  final area = w * h;\n  print('Area = $area');\n}"
+    ]
+   }
+  ],
+  "mid": [
+   {
+    "q": "اكتب دالة isPrime(int n) ترجّع true لو الرقم أولي.",
+    "hint": "جرّب القسمة من 2 لحد الجذر التربيعي للرقم.",
+    "a": [
+     "bool isPrime(int n) {\n  if (n < 2) return false;\n  for (int i = 2; i * i <= n; i++) {\n    if (n % i == 0) return false;\n  }\n  return true;\n}\n\nvoid main() {\n  print(isPrime(7));  // true\n  print(isPrime(10)); // false\n}",
+     "bool isPrime(int n) {\n  if (n < 2) return false;\n  return !List.generate(n - 2, (i) => i + 2).any((d) => n % d == 0);\n}"
+    ]
+   },
+   {
+    "q": "اعمل List فيها 5 أرقام، واطبع مجموعها وأكبر رقم فيها.",
+    "hint": "استخدم for أو reduce.",
+    "a": [
+     "void main() {\n  List<int> nums = [4, 9, 2, 7, 5];\n  int sum = 0;\n  int max = nums[0];\n  for (int n in nums) {\n    sum += n;\n    if (n > max) max = n;\n  }\n  print('Sum = $sum, Max = $max');\n}",
+     "import 'dart:math';\n\nvoid main() {\n  final nums = [4, 9, 2, 7, 5];\n  print('Sum = ${nums.reduce((a, b) => a + b)}, Max = ${nums.reduce(max)}');\n}"
+    ]
+   }
+  ],
+  "adv": [
+   {
+    "q": "اعمل Map فيها أسماء طلاب ودرجاتهم، واطبع اسم الطالب صاحب أعلى درجة.",
+    "hint": "لف على entries وقارن الدرجات.",
+    "a": "void main() {\n  Map<String, int> grades = {'Ali': 80, 'Sara': 95, 'Omar': 70};\n  String best = '';\n  int top = -1;\n  grades.forEach((name, g) {\n    if (g > top) {\n      top = g;\n      best = name;\n    }\n  });\n  print('$best: $top');\n}"
+   },
+   {
+    "q": "اكتب دالة recursive تحسب factorial لرقم.",
+    "hint": "factorial(n) = n * factorial(n - 1) وبتقف عند 1.",
+    "a": [
+     "int factorial(int n) {\n  if (n <= 1) return 1;\n  return n * factorial(n - 1);\n}\n\nvoid main() {\n  print(factorial(5)); // 120\n}",
+     "int factorial(int n) {\n  int result = 1;\n  for (int i = 2; i <= n; i++) {\n    result *= i;\n  }\n  return result;\n}"
+    ]
+   }
+  ]
+ },
+ "oop": {
+  "basic": [
+   {
+    "q": "اعمل class اسمه Car فيه brand و speed، وميثود accelerate تزوّد السرعة 10.",
+    "hint": "استخدم constructor بـ this.brand.",
+    "a": "class Car {\n  String brand;\n  int speed;\n  Car(this.brand, this.speed);\n\n  void accelerate() {\n    speed += 10;\n  }\n}\n\nvoid main() {\n  final car = Car('BMW', 0);\n  car.accelerate();\n  print('${car.brand}: ${car.speed}');\n}"
+   },
+   {
+    "q": "اعمل class Person فيه name و birthYear، وgetter اسمه age يحسب السن.",
+    "hint": "get age => DateTime.now().year - birthYear",
+    "a": "class Person {\n  String name;\n  int birthYear;\n  Person(this.name, this.birthYear);\n\n  int get age => DateTime.now().year - birthYear;\n}\n\nvoid main() {\n  final p = Person('Sara', 2000);\n  print('${p.name} is ${p.age}');\n}"
+   }
+  ],
+  "mid": [
+   {
+    "q": "اعمل class Animal فيه ميثود speak، وclass Dog يرث منه ويعمل override للـ speak.",
+    "hint": "extends و @override.",
+    "a": "class Animal {\n  void speak() => print('...');\n}\n\nclass Dog extends Animal {\n  @override\n  void speak() => print('Woof!');\n}\n\nvoid main() {\n  Animal a = Dog();\n  a.speak(); // Woof!\n}"
+   },
+   {
+    "q": "اعمل BankAccount فيه balance خاص، وdeposit و withdraw مع التأكد إن الرصيد يكفي.",
+    "hint": "اسم المتغير الخاص بيبدأ بـ _.",
+    "a": "class BankAccount {\n  double _balance = 0;\n  double get balance => _balance;\n\n  void deposit(double amount) {\n    if (amount > 0) _balance += amount;\n  }\n\n  bool withdraw(double amount) {\n    if (amount <= 0 || amount > _balance) return false;\n    _balance -= amount;\n    return true;\n  }\n}"
+   }
+  ],
+  "adv": [
+   {
+    "q": "اعمل abstract class Shape فيه area()، وCircle و Rectangle يرثوا منه، وحط كذا شكل في List واطبع مساحاتهم.",
+    "hint": "Polymorphism: اتعامل مع List<Shape>.",
+    "a": "import 'dart:math';\n\nabstract class Shape {\n  double area();\n}\n\nclass Circle extends Shape {\n  double r;\n  Circle(this.r);\n  @override\n  double area() => pi * r * r;\n}\n\nclass Rectangle extends Shape {\n  double w, h;\n  Rectangle(this.w, this.h);\n  @override\n  double area() => w * h;\n}\n\nvoid main() {\n  List<Shape> shapes = [Circle(2), Rectangle(3, 4)];\n  for (final s in shapes) {\n    print(s.area());\n  }\n}"
+   },
+   {
+    "q": "اعمل mixin اسمه Logger فيه log(String)، واستخدمه في class UserService.",
+    "hint": "mixin و with.",
+    "a": "mixin Logger {\n  void log(String msg) => print('[LOG] $msg');\n}\n\nclass UserService with Logger {\n  void addUser(String name) {\n    log('Adding $name');\n  }\n}\n\nvoid main() {\n  UserService().addUser('Ahmed');\n}"
+   }
+  ]
+ },
+ "flutter": {
+  "basic": [
+   {
+    "q": "اعمل شاشة فيها Scaffold و AppBar بعنوان \"Hello\" ونص في نص الشاشة.",
+    "hint": "Scaffold ثم appBar و body: Center.",
+    "a": "import 'package:flutter/material.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        appBar: AppBar(title: const Text('Hello')),\n        body: const Center(child: Text('Welcome to Flutter')),\n      ),\n    );\n  }\n}"
+   },
+   {
+    "q": "اعمل Column فيها 3 نصوص بينهم مسافات، وحوّطها بـ Padding.",
+    "hint": "SizedBox للمسافة، Padding حوالين الـ Column.",
+    "a": "Padding(\n  padding: const EdgeInsets.all(16),\n  child: Column(\n    children: const [\n      Text('One'),\n      SizedBox(height: 12),\n      Text('Two'),\n      SizedBox(height: 12),\n      Text('Three'),\n    ],\n  ),\n)"
+   }
+  ],
+  "mid": [
+   {
+    "q": "اعمل عداد: زرار بيزوّد رقم على الشاشة باستخدام StatefulWidget.",
+    "hint": "استخدم setState.",
+    "a": "class Counter extends StatefulWidget {\n  const Counter({super.key});\n  @override\n  State<Counter> createState() => _CounterState();\n}\n\nclass _CounterState extends State<Counter> {\n  int count = 0;\n\n  @override\n  Widget build(BuildContext context) {\n    return Column(\n      mainAxisAlignment: MainAxisAlignment.center,\n      children: [\n        Text('$count', style: const TextStyle(fontSize: 40)),\n        ElevatedButton(\n          onPressed: () => setState(() => count++),\n          child: const Text('+1'),\n        ),\n      ],\n    );\n  }\n}"
+   },
+   {
+    "q": "اعرض 20 عنصر في ListView.builder، وكل عنصر ListTile برقمه.",
+    "hint": "itemCount و itemBuilder.",
+    "a": [
+     "ListView.builder(\n  itemCount: 20,\n  itemBuilder: (context, i) => ListTile(\n    leading: CircleAvatar(child: Text('${i + 1}')),\n    title: Text('Item ${i + 1}'),\n  ),\n)",
+     "ListView(\n  children: List.generate(\n    20,\n    (i) => ListTile(title: Text('Item ${i + 1}')),\n  ),\n)"
+    ]
+   }
+  ],
+  "adv": [
+   {
+    "q": "اعمل عداد بـ Provider: class ChangeNotifier فيه count و increment، وشاشة بتعرضه.",
+    "hint": "notifyListeners و context.watch.",
+    "a": "class CounterModel extends ChangeNotifier {\n  int count = 0;\n  void increment() {\n    count++;\n    notifyListeners();\n  }\n}\n\n// في main:\n// ChangeNotifierProvider(create: (_) => CounterModel(), child: const MyApp())\n\nclass CounterView extends StatelessWidget {\n  const CounterView({super.key});\n  @override\n  Widget build(BuildContext context) {\n    final model = context.watch<CounterModel>();\n    return ElevatedButton(\n      onPressed: model.increment,\n      child: Text('Count: ${model.count}'),\n    );\n  }\n}"
+   },
+   {
+    "q": "هات بيانات من API باستخدام http واعرضها في FutureBuilder مع loading و error.",
+    "hint": "Future<List> وFutureBuilder و snapshot.hasError.",
+    "a": "import 'dart:convert';\nimport 'package:http/http.dart' as http;\n\nFuture<List<dynamic>> fetchPosts() async {\n  final res = await http.get(\n    Uri.parse('https://jsonplaceholder.typicode.com/posts'),\n  );\n  if (res.statusCode != 200) throw Exception('Failed');\n  return jsonDecode(res.body) as List<dynamic>;\n}\n\nFutureBuilder<List<dynamic>>(\n  future: fetchPosts(),\n  builder: (context, snap) {\n    if (snap.connectionState != ConnectionState.done) {\n      return const Center(child: CircularProgressIndicator());\n    }\n    if (snap.hasError) return const Text('Error');\n    return ListView(\n      children: [for (final p in snap.data!) ListTile(title: Text(p['title']))],\n    );\n  },\n)"
+   }
+  ]
+ }
+}
