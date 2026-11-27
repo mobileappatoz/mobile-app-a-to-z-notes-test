@@ -1,0 +1,233 @@
+[
+{
+"n": 2,
+"lv": "basic",
+"q": "اكتب الأمر اللي بتتأكد بيه إن Dart SDK اتثبّت صح، وقول إيه اللي المفروض يظهر.",
+"hint": "dart --version\n// بيطبع رقم نسخة Dart، مثلاً: Dart SDK version: 3.14.2 (stable)",
+"a": "الأمر بيطبع رقم النسخة."
+},
+{
+"n": 2,
+"lv": "basic",
+"q": "عندك ملف اسمه main.dart. اكتب الأمر اللي بيشغّله من الـ terminal.",
+"hint": "dart run main.dart",
+"a": "الأمر بيبدأ بـ dart."
+},
+{
+"n": 2,
+"lv": "basic",
+"q": "مفيش عندك مساحة تحمّل بيها حاجة. اذكر اتنين من البدائل اللي بتشغّل Dart من المتصفح من غير تحميل.",
+"hint": "1) DartPad على dartpad.dev\n2) vscode.dev\nالاتنين بيشتغلوا من Chrome.",
+"a": ""
+},
+{
+"n": 2,
+"lv": "basic",
+"q": "إيه الحاجة اللي لازم تفعّلها وقت تثبيت VS Code عشان الأوامر تشتغل من أي مكان في الـ terminal؟",
+"hint": "Add to PATH",
+"a": ""
+},
+{
+"n": 3,
+"lv": "basic",
+"q": "اكتب أصغر برنامج Dart يطبع Hello, Dart!",
+"hint": "void main() {\n  print('Hello, Dart!');\n}",
+"a": "كل برنامج لازم يبدأ بـ void main."
+},
+{
+"n": 3,
+"lv": "basic",
+"q": "الكود ده فيه غلطة ومش هيشتغل. صلّحه:\nvoid main() {\n  print('Hello')\n}",
+"hint": "void main() {\n  print('Hello');\n}\n// كانت ناقصة الفاصلة المنقوطة ; في آخر السطر",
+"a": "بص على آخر السطر."
+},
+{
+"n": 3,
+"lv": "basic",
+"q": "اعمل متغيرين: name من نوع String و age من نوع int، واطبعهم بالشكل ده: Ahmed is 20 years old",
+"hint": "void main() {\n  String name = 'Ahmed';\n  int age = 20;\n  print('$name is $age years old');\n}",
+"a": "استخدم $ جوه النص."
+},
+{
+"n": 3,
+"lv": "basic",
+"q": "اعمل متغيرات بالأنواع الأربعة الأساسية (String وint وdouble وbool) واطبع كل واحد.",
+"hint": "void main() {\n  String name = 'Ahmed';\n  int age = 20;\n  double height = 1.75;\n  bool isStudent = true;\n  print(name);\n  print(age);\n  print(height);\n  print(isStudent);\n}",
+"a": ""
+},
+{
+"n": 3,
+"lv": "basic",
+"q": "اكتب نفس المتغيرات باستخدام var بدل ما تكتب النوع، وبعدين اطبع المدينة.",
+"hint": "void main() {\n  var name = 'Ahmed';\n  var age = 20;\n  var city = 'Cairo';\n  print(city);\n}",
+"a": "var بتخلي Dart يخمّن النوع."
+},
+{
+"n": 3,
+"lv": "basic",
+"q": "اعمل متغير age قيمته 20، اطبعه، وبعدين غيّر قيمته لـ 21 واطبعه تاني.",
+"hint": "void main() {\n  var age = 20;\n  print(age);\n  age = 21;\n  print(age);\n}",
+"a": "قيمة المتغير ممكن تتغير."
+},
+{
+"n": 3,
+"lv": "basic",
+"q": "الكود ده فيه غلطة نوع. إيه هي وإزاي تصلحها؟\nint age = '20';",
+"hint": "int age = 20;\n// age من نوع int فلازم القيمة رقم من غير علامات تنصيص. '20' ده String.",
+"a": ""
+},
+{
+"n": 3,
+"lv": "basic",
+"q": "اطبع جملة فيها ثلاث متغيرات: الاسم والسن والمدينة. بعدين غيّر المدينة واطبع الجملة تاني.",
+"hint": "void main() {\n  var name = 'Ahmed';\n  var age = 20;\n  var city = 'Cairo';\n  print('$name, $age, $city');\n  city = 'Giza';\n  print('$name, $age, $city');\n}",
+"a": ""
+},
+{
+"n": 4,
+"lv": "basic",
+"q": "اكتب برنامج بيشوف لو age أكبر من أو يساوي 18 يطبع Accepted، غير كده يطبع Rejected.",
+"hint": "void main() {\n  var age = 20;\n  if (age >= 18) {\n    print('Accepted');\n  } else {\n    print('Rejected');\n  }\n}",
+"a": "if و else."
+},
+{
+"n": 4,
+"lv": "basic",
+"q": "اعمل برنامج تقدير: 90 أو أكتر يطبع A، 80 أو أكتر يطبع B، غير كده يطبع C. جرّب score = 85.",
+"hint": "void main() {\n  var score = 85;\n  if (score >= 90) {\n    print('A');\n  } else if (score >= 80) {\n    print('B');\n  } else {\n    print('C');\n  }\n}",
+"a": "else if."
+},
+{
+"n": 4,
+"lv": "mid",
+"q": "الكود ده بيطبع Excellent وبعدها Invalid لما grade = 90. ليه؟ وإزاي تصلحه؟\nif (grade >= 85) print('Excellent');\nif (grade >= 75) print('Very good');\nelse print('Invalid');",
+"hint": "void main() {\n  var grade = 90;\n  if (grade >= 85) {\n    print('Excellent');\n  } else if (grade >= 75) {\n    print('Very good');\n  } else {\n    print('Invalid');\n  }\n}\n// الـ ifs المنفصلة كلها بتتشيك، والـ else بتتربط بآخر if بس. مع else if أول شرط صح بس هو اللي بيتنفذ.",
+"a": "فرق بين if ورا بعض و else if."
+},
+{
+"n": 4,
+"lv": "basic",
+"q": "اكتب شرط بيطبع Enter لو العمر 18 أو أكتر ومعاه بطاقة (hasId = true).",
+"hint": "void main() {\n  var age = 20;\n  var hasId = true;\n  if (age >= 18 && hasId) {\n    print('Enter');\n  }\n}",
+"a": "&& معناها الاتنين لازم صح."
+},
+{
+"n": 4,
+"lv": "basic",
+"q": "اكتب شرط بيطبع Allowed لو المستخدم admin أو owner (واحد منهم يكفي).",
+"hint": "void main() {\n  var isAdmin = false;\n  var isOwner = true;\n  if (isAdmin || isOwner) {\n    print('Allowed');\n  }\n}",
+"a": "|| معناها واحد صح يكفي."
+},
+{
+"n": 4,
+"lv": "mid",
+"q": "لو العمر 18 أو أكتر شوف لو معاه تذكرة: يطبع Welcome، وغير كده يطبع Buy ticket. استخدم if جوه if.",
+"hint": "void main() {\n  var age = 20;\n  var hasTicket = true;\n  if (age >= 18) {\n    if (hasTicket) {\n      print('Welcome');\n    } else {\n      print('Buy ticket');\n    }\n  }\n}",
+"a": ""
+},
+{
+"n": 4,
+"lv": "mid",
+"q": "استخدم switch على رقم اليوم: 1 يطبع Monday و3 يطبع Wednesday وأي رقم تاني يطبع Other day.",
+"hint": "void main() {\n  var day = 3;\n  switch (day) {\n    case 1:\n      print('Monday');\n      break;\n    case 3:\n      print('Wednesday');\n      break;\n    default:\n      print('Other day');\n  }\n}",
+"a": "لا تنسى break و default."
+},
+{
+"n": 4,
+"lv": "mid",
+"q": "اكتب if ... else في سطر واحد بالـ ternary: لو age >= 18 المتغير msg يبقى Adult وغير كده Minor.",
+"hint": "void main() {\n  var age = 20;\n  var msg = age >= 18 ? 'Adult' : 'Minor';\n  print(msg);\n}",
+"a": ""
+},
+{
+"n": 4,
+"lv": "adv",
+"q": "اطبع أكبر رقم بين a و b و c من غير ما تستخدم دوال جاهزة. جرّب 10 و15 و20.",
+"hint": "void main() {\n  var a = 10, b = 15, c = 20;\n  if (a >= b && a >= c) {\n    print(a);\n  } else if (b >= a && b >= c) {\n    print(b);\n  } else {\n    print(c);\n  }\n}",
+"a": "&& في كل شرط."
+},
+{
+"n": 4,
+"lv": "adv",
+"q": "اقرا رقم من المستخدم واطبع Even لو زوجي و Odd لو فردي.",
+"hint": "import 'dart:io';\n\nvoid main() {\n  print('Enter a number:');\n  int n = int.parse(stdin.readLineSync()!);\n  if (n % 2 == 0) {\n    print('Even');\n  } else {\n    print('Odd');\n  }\n}",
+"a": "stdin.readLineSync() بترجع String وint.parse بتحولها لرقم."
+},
+{
+"n": 5,
+"lv": "basic",
+"q": "اطبع الأرقام من 1 لـ 100 بـ loop واحدة.",
+"hint": "void main() {\n  for (var i = 1; i <= 100; i++) {\n    print(i);\n  }\n}",
+"a": "for فيها بداية وشرط وزيادة."
+},
+{
+"n": 5,
+"lv": "basic",
+"q": "الكود ده بيطبع كام رقم وإيه هي؟\nfor (var i = 0; i < 5; i++) { print(i); }",
+"hint": "بيطبع 5 أرقام: 0 و1 و2 و3 و4.\nلأن الشرط i < 5 بيقف لما i تبقى 5. لو كان i <= 5 كانت هتطبع 6 أرقام.",
+"a": ""
+},
+{
+"n": 5,
+"lv": "basic",
+"q": "احسب مجموع الأرقام من 1 لـ 10 واطبعه.",
+"hint": "void main() {\n  var sum = 0;\n  for (var i = 1; i <= 10; i++) {\n    sum = sum + i;\n  }\n  print(sum);\n}",
+"a": "متغير sum قبل الـ loop."
+},
+{
+"n": 5,
+"lv": "mid",
+"q": "احسب factorial الرقم 5 (5×4×3×2×1) واطبعه.",
+"hint": "void main() {\n  var fact = 1;\n  for (var i = 1; i <= 5; i++) {\n    fact = fact * i;\n  }\n  print(fact);\n}",
+"a": "ابدأ بـ fact = 1 مش 0."
+},
+{
+"n": 5,
+"lv": "basic",
+"q": "اطبع الأرقام الزوجية من 1 لـ 100 بطريقتين مختلفتين.",
+"hint": "void main() {\n  for (var i = 2; i <= 100; i += 2) {\n    print(i);\n  }\n  for (var i = 1; i <= 100; i++) {\n    if (i % 2 == 0) {\n      print(i);\n    }\n  }\n}",
+"a": "واحدة بـ i += 2 والتانية بـ %."
+},
+{
+"n": 5,
+"lv": "adv",
+"q": "اكتب برنامج بيشوف لو n = 7 رقم أولي ويطبع النتيجة.",
+"hint": "void main() {\n  var n = 7;\n  var isPrime = true;\n  if (n <= 1) {\n    isPrime = false;\n  } else {\n    for (var i = 2; i < n; i++) {\n      if (n % i == 0) {\n        isPrime = false;\n        break;\n      }\n    }\n  }\n  print('$n prime? $isPrime');\n}",
+"a": "isPrime = true ولو لقيت رقم بيقسم خليها false واعمل break. وخد بالك من 0 و1."
+},
+{
+"n": 5,
+"lv": "basic",
+"q": "اعمل عدّ تنازلي من 3 لـ 1 بـ while.",
+"hint": "void main() {\n  var i = 3;\n  while (i > 0) {\n    print(i);\n    i--;\n  }\n}",
+"a": "لازم تغيّر قيمة i جوه الـ loop."
+},
+{
+"n": 5,
+"lv": "mid",
+"q": "اكتب do-while بتطبع 0 و1 و2. وقول إيه الفرق بينها وبين while.",
+"hint": "void main() {\n  var i = 0;\n  do {\n    print(i);\n    i++;\n  } while (i < 3);\n}\n// do-while بتنفذ الكود مرة على الأقل وبعدين تشيك الشرط. while بتشيك الأول.",
+"a": ""
+},
+{
+"n": 5,
+"lv": "mid",
+"q": "اطبع من 1 لـ 10 بس اقفل الـ loop لما توصل لـ 4 (يطبع 1 و2 و3).",
+"hint": "void main() {\n  for (var i = 1; i <= 10; i++) {\n    if (i == 4) break;\n    print(i);\n  }\n}",
+"a": "break."
+},
+{
+"n": 5,
+"lv": "mid",
+"q": "اطبع من 1 لـ 5 بس اتخطى الرقم 3.",
+"hint": "void main() {\n  for (var i = 1; i <= 5; i++) {\n    if (i == 3) continue;\n    print(i);\n  }\n}",
+"a": "continue."
+},
+{
+"n": 5,
+"lv": "adv",
+"q": "استخدم loop جوه loop عشان تطبع حاصل ضرب r × c لكل r من 1 لـ 3 و c من 1 لـ 3.",
+"hint": "void main() {\n  for (var r = 1; r <= 3; r++) {\n    for (var c = 1; c <= 3; c++) {\n      print(r * c);\n    }\n  }\n}",
+"a": ""
+}
+]
